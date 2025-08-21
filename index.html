@@ -3,48 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store Panel Pterodactyl</title>
+  <title>CPanel Pterodactyl</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🛒 Store Panel Pterodactyl</h1>
-    <nav>
-      <a href="#paket">Paket Server</a>
-      <a href="#saldo">Top Up</a>
-      <a href="#server">Server Saya</a>
-    </nav>
-  </header>
+  <div class="container">
+    <h1>Pterodactyl Panel Manager</h1>
+    <button onclick="createServer()">Buat Server</button>
+    <pre id="output"></pre>
+  </div>
 
-  <section id="paket" class="card">
-    <h2>Paket Server</h2>
-    <div class="produk">
-      <h3>Basic - Rp5.000</h3>
-      <p>1GB RAM, 10GB Disk</p>
-      <button onclick="orderServer('Basic Server')">Order</button>
-    </div>
-    <div class="produk">
-      <h3>Premium - Rp15.000</h3>
-      <p>4GB RAM, 40GB Disk</p>
-      <button onclick="orderServer('Premium Server')">Order</button>
-    </div>
-  </section>
-
-  <section id="saldo" class="card">
-    <h2>💳 Top Up Saldo</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="number" id="amount" placeholder="Jumlah Top Up">
-    <button onclick="topUp()">Top Up</button>
-    <p id="saldoInfo"></p>
-  </section>
-
-  <section id="server" class="card">
-    <h2>Daftar Server Saya</h2>
-    <button onclick="listServers()">📜 Lihat Server</button>
-    <div id="serverList"></div>
-  </section>
-
-  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="ISI_CLIENT_KEY_MIDTRANS"></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
