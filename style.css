@@ -1,52 +1,43 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
-header {
-  background: #2d3e50;
-  color: white;
-  padding: 15px;
+.container {
   text-align: center;
-}
-header nav a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-}
-
-.card {
-  background: white;
-  margin: 20px auto;
+  background: #222;
   padding: 20px;
   border-radius: 12px;
-  max-width: 500px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 button {
-  padding: 10px 15px;
-  background: #007bff;
+  background: #4caf50;
   color: white;
   border: none;
+  padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
+  font-size: 16px;
+  margin-top: 10px;
 }
-button:hover { background: #0056b3; }
-input {
-  width: 90%;
+
+button:hover {
+  background: #45a049;
+}
+
+pre {
+  text-align: left;
+  margin-top: 20px;
+  background: #111;
   padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-.produk {
-  border: 1px solid #ddd;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow: auto;
 }
