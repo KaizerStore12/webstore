@@ -4,86 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Store Panel Pterodactyl</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    .card {
-      background: #161b22;
-      padding: 20px;
-      margin: 10px auto;
-      border-radius: 12px;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    button {
-      padding: 10px 15px;
-      background: #238636;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover { background: #2ea043; }
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🛒 Store Panel Pterodactyl</h1>
+  <header>
+    <h1>🛒 Store Panel Pterodactyl</h1>
+    <nav>
+      <a href="#paket">Paket Server</a>
+      <a href="#saldo">Top Up</a>
+      <a href="#server">Server Saya</a>
+    </nav>
+  </header>
 
-  <div class="card">
-    <h2>Buat Server Baru</h2>
-    <input type="text" id="username" placeholder="Username / Email">
-    <input type="text" id="serverName" placeholder="Nama Server">
-    <button onclick="orderServer()">🚀 Order Server</button>
-  </div>
+  <section id="paket" class="card">
+    <h2>Paket Server</h2>
+    <div class="produk">
+      <h3>Basic - Rp5.000</h3>
+      <p>1GB RAM, 10GB Disk</p>
+      <button onclick="orderServer('Basic Server')">Order</button>
+    </div>
+    <div class="produk">
+      <h3>Premium - Rp15.000</h3>
+      <p>4GB RAM, 40GB Disk</p>
+      <button onclick="orderServer('Premium Server')">Order</button>
+    </div>
+  </section>
 
-  <div class="card">
+  <section id="saldo" class="card">
+    <h2>💳 Top Up Saldo</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="number" id="amount" placeholder="Jumlah Top Up">
+    <button onclick="topUp()">Top Up</button>
+    <p id="saldoInfo"></p>
+  </section>
+
+  <section id="server" class="card">
     <h2>Daftar Server Saya</h2>
     <button onclick="listServers()">📜 Lihat Server</button>
     <div id="serverList"></div>
-  </div>
+  </section>
 
-  <script>
-    const API_URL = "http://localhost:3000"; // proxy backend kamu
-
-    async function orderServer() {
-      const username = document.getElementById("username").value;
-      const serverName = document.getElementById("serverName").value;
-
-      if(!username || !serverName) return alert("Isi semua field!");
-
-      const res = await fetch(API_URL + "/create-server", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, serverName })
-      });
-
-      const data = await res.json();
-      alert("Server berhasil dibuat! ID: " + data.id);
-    }
-
-    async function listServers() {
-      const res = await fetch(API_URL + "/list-servers");
-      const servers = await res.json();
-      let html = "<ul>";
-      servers.forEach(s => {
-        html += `<li>${s.name} (ID: ${s.id})</li>`;
-      });
-      html += "</ul>";
-      document.getElementById("serverList").innerHTML = html;
-    }
-  </script>
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="ISI_CLIENT_KEY_MIDTRANS"></script>
+  <script src="script.js"></script>
 </body>
 </html>
